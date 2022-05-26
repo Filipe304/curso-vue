@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <p v-once>Nome inteiro: {{ nome }}</p>
+        <p>Nome: {{ getNome() }}</p>
+    </div>
+    
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            data: {
+                nome: 'Filipe Fredrich'
+            },
+            methods: {
+                getNome: function() {
+                    this.nome = 'Filipe';
+                    return this.nome;
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>
