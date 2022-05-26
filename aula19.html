@@ -7,20 +7,30 @@
 <body>
     
     <div id="app">
-        <input v-on:blur="exibirNome('Meu nome é: ', $event)">
-        <p>{{ nome }}</p>
+        <p v-on:click="onClick('p', $event)">
+            Curso de VueJS
+            <button v-on:click.stop="onClick('button', $event)">Clique</button>
+        </p>
+
+        <form>
+            <input type="text">
+            <button type="submit" v-on:click="onSubmit">Enviar sem modificador</button>
+            <button type="submit" v-on:click.prevent="onSubmit">Enviar com modificador</button>
+        </form>
+
     </div>
     
     <script type="text/javascript">
 
         new Vue({
             el: '#app',
-            data: {
-                nome: ''
-            },
             methods: {
-                exibirNome: function(texto, event) {
-                    this.nome = texto + event.target.value;
+                onClick: function(elementoAlvo, event){
+                    event.stopPropagation();
+                    console.log(event.type, ':', elementoAlvo);
+                },
+                onSubmit: function(event) {
+                    console.log('Formulário enviado!');
                 }
             }
         });
