@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <input v-on:keyup="onKey" placeholder="Qualquer tecla">
+        <br>
+        <input v-on:keyup.enter="onKey" placeholder="Tecla Enter">
+        <br>
+        <input v-on:keyup.enter.esc="onKey" placeholder="Tecla Enter ou Escape">
+        <br>       
+        <input v-on:keyup.arrow-up="onKey" placeholder="Qualquer tecla">
+        <br>
+        <input v-on:keyup.ctrl.enter.exact="onKey" placeholder="Teclas CTRL + Enter (exact)">
+    </div>
+    
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            methods: {
+                onKey: function(event) {
+                    console.log('Tecla' + event.key + ' pressionada! ');
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>
