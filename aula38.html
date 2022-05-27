@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VueJS - Guia completo</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <p v-if="nota === 'A'">Parabéns, vocẽ tirou um "A"!</p>
+        <p v-else-if="nota === 'B'">Você tirou um "B", mas pode melhorar!</p>
+        <p v-else-if="nota === 'C'">Você precisa melhorar, estude mais. Sua nota: "C"</p>
+        <p v-else>Nota ainda não publicada.</p>
+        <input v-model="nota" placeholder="Nota">
+    </div>
+    
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            data: {
+                nota: ''
+            }
+        });
+
+    </script>
+
+</body>
+</html>
